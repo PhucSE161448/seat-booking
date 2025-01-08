@@ -401,19 +401,7 @@ const Home = () => {
         padding: 20,
       }}
     >
-      <div
-        style={{
-          width: "100%",
-          backgroundColor: "#333",
-          color: "white",
-          textAlign: "center",
-          padding: "20px 0",
-          fontSize: "24px",
-          fontWeight: "bold",
-        }}
-      >
-        Sân khấu
-      </div>
+      <div className="showw">Sân khấu</div>
 
       <div className="main-container">
         <div className="seat-layout-wrapper">

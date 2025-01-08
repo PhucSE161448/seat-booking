@@ -112,6 +112,9 @@ body {
         margin-top: auto;
         position: static !important;
     }
+    .showw{
+        width: 1200px !important;
+    }
 }
 
 /* Media query cho các màn hình rất nhỏ như điện thoại */
@@ -128,6 +131,9 @@ body {
 
     .navbar {
         padding: 10px;
+    }
+    .showw{
+        width: 1200px !important;
     }
 
     /* Phần ghế: sử dụng flexbox để đảm bảo ghế không bị mất */
@@ -470,4 +476,13 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr; /* Chia thành hai cột */
   gap: 20px; /* Khoảng cách giữa các cột */
+}
+.showw{
+  width: 100%;
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 24px;
+  font-weight: bold;
 }
