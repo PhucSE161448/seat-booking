@@ -115,6 +115,10 @@ body {
     .showw{
         width: 1200px !important;
     }
+    .seat-layout-wrapper,
+    .bottom-layout-wrapper {
+        margin-left: 10% !important;
+    }
 }
 
 /* Media query cho các màn hình rất nhỏ như điện thoại */
@@ -145,7 +149,10 @@ body {
         overflow-y: auto; /* Cuộn theo chiều dọc khi cần thiết */
         padding: 5px;
     }
-
+    .seat-layout-wrapper,
+    .bottom-layout-wrapper {
+        margin-left: 10% !important;
+    }
     .seat-layout {
         display: grid;
         grid-template-columns: repeat(6, 1fr); /* Giảm số cột để vừa với màn hình */
@@ -229,6 +236,7 @@ body {
     padding: 20px;
     width: fit-content;
     margin-top: 20px;
+    margin-left: 20%;
 }
 
 .seat-layout,
