@@ -1,0 +1,314 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  @media (max-width: 768px) {
+    body {
+      font-size: 14px; /* Giảm kích thước chữ */
+      padding: 10px;
+    }
+  
+    .container {
+      width: 100%;
+    }
+  
+    .navbar {
+      flex-direction: column;
+    }
+  }
+  
+  /* Media query cho màn hình rất nhỏ (máy tính bảng hoặc điện thoại nhỏ) */
+  @media (max-width: 480px) {
+    body {
+      font-size: 12px; /* Giảm thêm kích thước chữ */
+    }
+  
+    .navbar {
+      font-size: 12px; /* Giảm kích thước font trong navbar */
+    }
+  
+    .container {
+      padding: 5px;
+    }
+  }
+  .seat-layout-wrapper,
+  .bottom-layout-wrapper {
+    margin: 0; /* Remove margin-bottom */
+    border: 5px solid black;
+    padding: 20px;
+  }
+  
+  .seat-layout,
+  .bottom-layout {
+    display: grid;
+    gap: 5px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .seat-layout {
+    grid-template-columns: repeat(22, 40px);
+    grid-template-rows: repeat(14, 40px);
+  }
+  
+  .bottom-layout {
+    grid-template-columns: repeat(23, 40px);
+    grid-template-rows: repeat(10, 40px);
+  }
+  
+  .seat {
+    width: 40px;
+    height: 40px;
+    background-color: #f5a003;
+    color: black;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 2px solid black; /* Thêm viền đen */
+  }
+  
+  .seat.char {
+    background-color: transparent;
+    color: black;
+    font-weight: bold;
+    cursor: default;
+  }
+  
+  .seat.empty {
+    background-color: transparent;
+    cursor: default;
+    border: 2px solid black; /* Thêm viền đen */
+  }
+  
+  .seat.red {
+    background-color: #ff3333;
+    color: black;
+    font-weight: bold;
+    border: 2px solid black; /* Thêm viền đen */
+  }
+  
+  .seat.yellow {
+    background-color: #f5a003;
+    color: black;
+    font-weight: bold;
+    border: 2px solid black; /* Thêm viền đen */
+  }
+  
+  .seat.blue {
+    background-color: #3498db;
+    color: black;
+    font-weight: bold;
+    border: 2px solid black; /* Thêm viền đen */
+  }
+  .seat.pink {
+    background-color: #eb0578;
+    color: black;
+    font-weight: bold;
+    border: 2px solid black; /* Thêm viền đen */
+  }
+  .seat-layout-wrapper,
+  .bottom-layout-wrapper {
+    border: 5px solid black;
+    padding: 20px;
+    width: fit-content;
+  }
+  
+  /* Input Phía trên lầu */
+  input[readonly] {
+    background-color: #f9f9f9;
+    color: #333;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+  }
+  .bottom-layout input[readonly] {
+    background-color: #f9f9f9;
+    color: #333;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  /* Chỉnh sửa lại để các ghế không bị chồng lên ô input */
+  .bottom-layout-seats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .price-container-wrapper {
+    position: absolute;
+    top: 10px; /* Giảm khoảng cách từ đỉnh */
+    right: 10px; /* Giảm khoảng cách từ bên phải */
+    width: auto;
+  }
+  
+  .layout-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff; /* Thêm màu nền cho bảng giá */
+    padding: 30px; /* Thêm padding cho bảng giá */
+    border-radius: 10px; /* Bo tròn góc bảng giá */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    min-width: 300px; /* Thêm bóng đổ cho bảng giá */
+  }
+  
+  .price-container {
+    display: flex;
+    flex-direction: column; /* Quan trọng: Sắp xếp theo cột */
+    align-items: flex-start; /* Căn trái nội dung */
+    gap: 10px; /* Khoảng cách giữa các mục giá */
+  }
+  
+  .price-item {
+    font-size: 25px;
+    font-weight: bold;
+    /* Loại bỏ text-align: center; nếu bạn muốn căn trái */
+    display: flex; /* Để căn chỉnh biểu tượng màu và chữ */
+    align-items: center; /* Căn giữa theo chiều dọc */
+  }
+  
+  .color-box {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    margin-right: 5px; /* Khoảng cách giữa biểu tượng và chữ */
+  }
+  .color-box.red {
+    background-color: #ff3333;
+  }
+  
+  .color-box.yellow {
+    background-color: #f5a003;
+  }
+  
+  .color-box.blue {
+    background-color: #3498db;
+  }
+  .color-box.pink {
+    background-color: #eb0578;
+  }
+  .color-box.gray {
+    background-color: gray;
+  }
+  .seat-layout-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Optional gap between sections */
+  }
+  .main-container {
+    position: relative; /* Tạo ngữ cảnh định vị */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Căn giữa theo chiều ngang */
+    gap: 20px;
+    width: 100%;
+    margin-top: 20px;
+  }
+  .selected-seats {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    width: 100%;
+    margin-top: 40px;
+    box-sizing: border-box;
+    justify-content: center;
+  }
+  
+  .selected-seats h3 {
+    margin-bottom: 15px;
+    font-size: 20px;
+  }
+  .seat.x-mark {
+    font-size: 50px; /* Tăng kích thước của dấu X */
+    color: black; /* Màu của dấu X */
+  }
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Modal content */
+  .modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 650px;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Tiêu đề modal */
+  .modal-content h3 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  /* Các trường input, select và label */
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    font-size: 16px;
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  .form-group input,
+  .form-group select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .form-group input[readonly] {
+    background-color: #f9f9f9;
+  }
+  
+  /* Các nút trong modal */
+  .modal-actions {
+    display: flex;
+    justify-content: space-between; /* Điều chỉnh các nút cách nhau */
+    margin-top: 20px;
+  }
+  
+  /* Modal actions buttons */
+  .modal-actions button {
+    background-color: #28a745;
+    padding: 15px 30px; /* Tăng kích thước padding */
+    font-size: 15px; /* Tăng kích thước font chữ */
+    border-radius: 8px; /* Cải thiện bo góc */
+    cursor: pointer;
+    width: 38%; /* Đảm bảo các nút chiếm 1/2 chiều rộng */
+    text-align: center;
+  }
+  
+  .modal-actions button.cancel {
+    background-color: #dc3545;
+    margin-left: 10px;
+  }
+  
+  .modal-actions button:hover {
+    opacity: 0.8; /* Thêm hiệu ứng khi hover */
+  }
+  
