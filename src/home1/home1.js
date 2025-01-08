@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./home.css"; // Tạo file CSS dựa trên phần style bạn cung cấp
+import "./home1.css"; // Tạo file CSS dựa trên phần style bạn cung cấp
 import { useLocation } from "react-router-dom";
 
 const SeatLayout = ({ rows, cols, hiddenSeats, charCols, onSeatSelect }) => {
@@ -8,7 +8,11 @@ const SeatLayout = ({ rows, cols, hiddenSeats, charCols, onSeatSelect }) => {
 
   useEffect(() => {
     const fetchSeatData = () => {
-      fetch("https://seat-booking.azurewebsites.net/api/Seat")
+      const showtime = 2; // Thay bằng giá trị `showtime` mong muốn
+
+      fetch(
+        `https://seat-booking.azurewebsites.net/api/Seat?showtime=${showtime}`
+      )
         .then((response) => {
           if (!response.ok) {
             throw new Error("Failed to fetch seat data");
@@ -294,7 +298,7 @@ const colorNamesInVietnamese = {
   blue: "Ghế Xanh",
   pink: "Ghế Hồng",
 };
-const Home = () => {
+const Home1 = () => {
   const hiddenSeats = {
     A: [19, 20, 21, 22],
     B: [17, 19, 20, 21, 22],
@@ -583,4 +587,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Home1;
