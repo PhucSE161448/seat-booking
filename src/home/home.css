@@ -21,7 +21,7 @@ body {
 }
 
 /* Media query cho điện thoại nhỏ */
-@media (min-width: 700px) {
+@media (max-width: 1500px) {
     body {
         font-size: 12px;
         padding: 5px;
@@ -70,7 +70,8 @@ body {
         padding: 10px;
         border-radius: 10px;
         border: 1px solid #ddd;
-        margin-top: 10px;
+        margin-top: 0px !important;
+        margin-left: 10px !important;
         font-size: 12px;
         overflow-y: auto;
     }
@@ -102,7 +103,8 @@ body {
         width: 40%;
     }
     .price-container-wrapper{
-        width: 0;
+        width: auto !important;
+        display: flex;
     }
     /* Move the price container and selected seats to the bottom */
     .price-container-wrapper,
@@ -114,37 +116,91 @@ body {
 
 /* Media query cho các màn hình rất nhỏ như điện thoại */
 @media (max-width: 480px) {
-    .seat-layout, .bottom-layout {
-        grid-template-columns: repeat(4, 1fr); /* Giảm nữa số cột */
-        grid-template-rows: repeat(4, 20px);
+    body {
+        font-size: 12px;
+        padding: 5px;
     }
 
-    .seat {
-        width: 18px; /* Giảm thêm kích thước ghế */
-        height: 18px; /* Giảm thêm chiều cao ghế */
-        font-size: 8px; /* Giảm font-size */
+    .container {
+        width: 100%;
+        padding: 5px;
+    }
+
+    .navbar {
+        padding: 10px;
+    }
+
+    /* Phần ghế: sử dụng flexbox để đảm bảo ghế không bị mất */
+    .seat-layout-wrapper {
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1; /* Ghế sẽ chiếm phần không gian còn lại */
+        overflow-y: auto; /* Cuộn theo chiều dọc khi cần thiết */
+        padding: 5px;
+    }
+
+    .seat-layout {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr); /* Giảm số cột để vừa với màn hình */
+        grid-template-rows: repeat(6, 30px); /* Điều chỉnh chiều cao các hàng */
+        gap: 5px;
+        flex-grow: 1; /* Cho phép ghế chiếm phần không gian còn lại */
+        overflow-y: auto; /* Cuộn dọc khi không gian không đủ */
+    }
+
+    .price-container-wrapper, .selected-seats {
+        width: 100%;
+        margin-top: 10px;
+        margin-right: 0 !important;
+        box-sizing: border-box;
+        padding: 10px;
+        flex-shrink: 0; /* Ngăn không cho bảng giá bị thu nhỏ */
+        overflow-y: auto; /* Cuộn dọc khi cần thiết */
+    }
+
+    .selected-seats {
+        background-color: #f9f9f9;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #ddd;
+        margin-top: 0px !important;
+        margin-left: 10px !important;
+        font-size: 12px;
+        overflow-y: auto;
+    }
+
+    .selected-seats h3 {
+        font-size: 12px;
+    }
+
+    .selected-seats ul {
+        padding-left: 0;
+        list-style-type: none;
+    }
+
+    .selected-seats li {
+        font-size: 14px;
+        padding: 3px 0;
+    }
+
+    /* Modal */
+    .modal-content {
+        max-width: 350px;
+        width: 90%;
+        padding: 15px;
     }
 
     .modal-actions button {
         padding: 8px 12px;
-        font-size: 12px;
+        font-size: 14px;
         width: 40%;
     }
-
-    .selected-seats {
-        padding: 5px;
-        font-size: 12px;
-        margin-top: 10px;
+    .price-container-wrapper{
+        width: 800px !important;
+        display: flex;
     }
-
-    .selected-seats h3 {
-        font-size: 10px;
-    }
-
-    .seat-layout-wrapper, .bottom-layout-wrapper {
-        padding: 8px;
-    }
-
+    /* Move the price container and selected seats to the bottom */
     .price-container-wrapper,
     .selected-seats {
         margin-top: auto;
@@ -166,6 +222,7 @@ body {
     border: 3px solid black;
     padding: 20px;
     width: fit-content;
+    margin-top: 20px;
 }
 
 .seat-layout,
