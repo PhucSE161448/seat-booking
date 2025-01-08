@@ -146,7 +146,7 @@ body {
     position: absolute;
     top: 10px; /* Giảm khoảng cách từ đỉnh */
     right: 10px; /* Giảm khoảng cách từ bên phải */
-    width: auto;
+    width: 350px;
   }
   
   .layout-wrapper {
@@ -168,7 +168,7 @@ body {
   }
   
   .price-item {
-    font-size: 25px;
+    font-size: 18px;
     font-weight: bold;
     /* Loại bỏ text-align: center; nếu bạn muốn căn trái */
     display: flex; /* Để căn chỉnh biểu tượng màu và chữ */

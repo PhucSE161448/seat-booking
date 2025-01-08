@@ -6,7 +6,7 @@ const SeatLayout = ({ rows, cols, hiddenSeats, charCols, onSeatSelect }) => {
   const [selectedSeats, setSelectedSeats] = useState([]);
 
   useEffect(() => {
-    fetch("https://localhost:7170/api/Seat")
+    fetch("https://seat-booking.azurewebsites.net/api/Seat")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch seat data");
@@ -129,7 +129,7 @@ const BottomLayout = ({
 
   // Gọi API để lấy dữ liệu ghế
   useEffect(() => {
-    fetch("https://localhost:7170/api/Seat")
+    fetch("https://seat-booking.azurewebsites.net/api/Seat")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch seat data");
@@ -361,7 +361,7 @@ const Home = () => {
     };
     console.log(paymentData);
     // Gửi dữ liệu qua API
-    fetch("https://localhost:7170/api/payos", {
+    fetch("https://seat-booking.azurewebsites.net/api/payos", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
