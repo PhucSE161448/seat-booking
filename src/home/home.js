@@ -393,7 +393,6 @@ const Home = () => {
     <div
       style={{
         fontFamily: "Arial, sans-serif",
-        display: "flex",
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
@@ -423,6 +422,14 @@ const Home = () => {
             cols={22}
             hiddenSeats={hiddenSeats}
             charCols={[5, 18]}
+            onSeatSelect={handleSeatSelect}
+          />
+        </div>
+
+        <div className="bottom-layout-wrapper">
+          <BottomLayout
+            {...bottomLayoutProps}
+            selectedSeats={selectedSeats}
             onSeatSelect={handleSeatSelect}
           />
         </div>
@@ -496,14 +503,6 @@ const Home = () => {
               </button>
             </div>
           </div>
-        </div>
-
-        <div className="bottom-layout-wrapper">
-          <BottomLayout
-            {...bottomLayoutProps}
-            selectedSeats={selectedSeats}
-            onSeatSelect={handleSeatSelect}
-          />
         </div>
       </div>
       {isModalOpen && (
