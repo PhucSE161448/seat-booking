@@ -440,7 +440,7 @@ const Home = () => {
         padding: 20,
       }}
     >
-      <div className="showw">Sân khấu</div>
+      <div className="showw">Sân khấu 1</div>
 
       <div className="main-container">
         <div className="seat-layout-wrapper">
