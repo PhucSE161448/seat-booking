@@ -386,10 +386,19 @@ const Home = () => {
       selectedBranch: selectedBranch,
       bookingShow: 1, // Tổng tiền
     };
+    if (role === "admin") {
+      paymentData.isCash = true;
+      console.log("isCash đã được thêm vào paymentData:", paymentData); // Thêm isCash vào paymentData nếu là admin
+    } else {
+      paymentData.isCash = false;
+    }
+
     console.log(paymentData);
     //const role = localStorage.getItem("role"); // Hoặc lấy từ state/context nếu bạn lưu trong đó
 
     // Gửi dữ liệu qua API
+
+    //
     fetch("https://seat-booking.azurewebsites.net/api/payos", {
       method: "POST",
       headers: {

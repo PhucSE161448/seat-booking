@@ -15,9 +15,9 @@ const Login = () => {
     if (email === "123" && password === "123") {
       // Điều hướng qua trang Home
       if (batch === "1") {
-        navigate("/", { state: { role: "admin", batch: "1" } });
+        navigate("/concert-dot-1", { state: { role: "admin", batch: "1" } });
       } else if (batch === "2") {
-        navigate("/show2", { state: { role: "admin", batch: "2" } });
+        navigate("/concert-dot-2", { state: { role: "admin", batch: "2" } });
       }
     } else {
       alert("Email hoặc mật khẩu không đúng!");
