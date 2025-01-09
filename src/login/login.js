@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [batch, setBatch] = useState("1");
   const navigate = useNavigate(); // Khai báo useNavigate
 
   const handleLogin = (e) => {
@@ -13,7 +14,11 @@ const Login = () => {
     // Kiểm tra email và password
     if (email === "123" && password === "123") {
       // Điều hướng qua trang Home
-      navigate("/", { state: { role: "admin" } });
+      if (batch === "1") {
+        navigate("/", { state: { role: "admin", batch: "1" } });
+      } else if (batch === "2") {
+        navigate("/show2", { state: { role: "admin", batch: "2" } });
+      }
     } else {
       alert("Email hoặc mật khẩu không đúng!");
     }
@@ -38,6 +43,14 @@ const Login = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+          <select
+            className="login-select"
+            value={batch}
+            onChange={(e) => setBatch(e.target.value)} // Cập nhật state batch
+          >
+            <option value="1">Đợt 1</option>
+            <option value="2">Đợt 2</option>
+          </select>
           <button type="submit" className="login-button">
             Login
           </button>

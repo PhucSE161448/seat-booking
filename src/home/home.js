@@ -321,7 +321,7 @@ const Home = () => {
   const location = useLocation();
   const { role } = location.state || {};
   console.log(role);
-  localStorage.setItem("role", "admin");
+  //localStorage.setItem("role", "admin");
   const [selectedSeats, setSelectedSeats] = useState([]);
   const handleSeatSelect = (seatId, rowChar, col, color, floor) => {
     const seatInfo = { seatId, rowChar, col, color, floor };
@@ -350,7 +350,6 @@ const Home = () => {
   const [studentName, setStudentName] = useState(""); // State cho tên học viên
   const [selectedBranch, setSelectedBranch] = useState(""); // State cho chi nhánh
   const [totalPrice, setTotalPrice] = useState(calculateTotalPrice()); // Tổng tiền
-
   // Danh sách các chi nhánh trung tâm (có thể lấy từ API hoặc hardcoded)
   const branches = ["Quận Phú Nhuận", "Quận 3", "Quận 10", "Quận Tân Bình"];
 
@@ -384,10 +383,11 @@ const Home = () => {
       seats: selectedSeatIds, // Danh sách `seatId` của các ghế đã chọn
       totalAmount: totalAmount,
       studentName: studentName, // Tên học viên
-      selectedBranch: selectedBranch, // Tổng tiền
+      selectedBranch: selectedBranch,
+      bookingShow: 1, // Tổng tiền
     };
     console.log(paymentData);
-    const role = localStorage.getItem("role"); // Hoặc lấy từ state/context nếu bạn lưu trong đó
+    //const role = localStorage.getItem("role"); // Hoặc lấy từ state/context nếu bạn lưu trong đó
 
     // Gửi dữ liệu qua API
     fetch("https://seat-booking.azurewebsites.net/api/payos", {
@@ -405,9 +405,16 @@ const Home = () => {
       })
       .then((result) => {
         console.log("Thanh toán thành công!", result);
+        console.log("role:", role, "result.url:", result?.url);
+
         // Thực hiện hành động sau khi thanh toán thành công, ví dụ: đóng modal, thông báo thành công...
         // Redirect to the returned URL
-        if (role !== "admin" && result?.url) {
+        if (
+          role === undefined ||
+          role === null ||
+          role === "" ||
+          role === "undefined"
+        ) {
           window.location.href = result.url; // Redirect to the URL
         } else {
           // Nếu là admin, chỉ đóng modal và thông báo thành công
@@ -536,7 +543,7 @@ const Home = () => {
                   type="text"
                   value={studentName}
                   onChange={(e) => setStudentName(e.target.value)}
-                  placeholder="Nhập tên học viên"
+                  placeholder="Nhập tên học viên (Ví dụ: Minh Phúc)"
                   required
                 />
               </div>

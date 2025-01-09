@@ -146,7 +146,11 @@ const BottomLayout = ({
   // Gọi API để lấy dữ liệu ghế
   useEffect(() => {
     const fetchSeatData = () => {
-      fetch("https://seat-booking.azurewebsites.net/api/Seat")
+      const showtime = 2; // Thay bằng giá trị `showtime` mong muốn
+
+      fetch(
+        `https://seat-booking.azurewebsites.net/api/Seat?showtime=${showtime}`
+      )
         .then((response) => {
           if (!response.ok) {
             throw new Error("Failed to fetch seat data");
@@ -325,7 +329,7 @@ const Home1 = () => {
   const location = useLocation();
   const { role } = location.state || {};
   console.log(role);
-  localStorage.setItem("role", "admin");
+  //localStorage.setItem("role", "admin");
   const [selectedSeats, setSelectedSeats] = useState([]);
   const handleSeatSelect = (seatId, rowChar, col, color, floor) => {
     const seatInfo = { seatId, rowChar, col, color, floor };
@@ -388,10 +392,12 @@ const Home1 = () => {
       seats: selectedSeatIds, // Danh sách `seatId` của các ghế đã chọn
       totalAmount: totalAmount,
       studentName: studentName, // Tên học viên
-      selectedBranch: selectedBranch, // Tổng tiền
+      selectedBranch: selectedBranch,
+      bookingShow: 2,
+      // Tổng tiền
     };
     console.log(paymentData);
-    const role = localStorage.getItem("role"); // Hoặc lấy từ state/context nếu bạn lưu trong đó
+    //const role = localStorage.getItem("role"); // Hoặc lấy từ state/context nếu bạn lưu trong đó
 
     // Gửi dữ liệu qua API
     fetch("https://seat-booking.azurewebsites.net/api/payos", {
@@ -411,7 +417,12 @@ const Home1 = () => {
         console.log("Thanh toán thành công!", result);
         // Thực hiện hành động sau khi thanh toán thành công, ví dụ: đóng modal, thông báo thành công...
         // Redirect to the returned URL
-        if (role !== "admin" && result?.url) {
+        if (
+          role === undefined ||
+          role === null ||
+          role === "" ||
+          role === "undefined"
+        ) {
           window.location.href = result.url; // Redirect to the URL
         } else {
           // Nếu là admin, chỉ đóng modal và thông báo thành công

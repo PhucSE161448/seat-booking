@@ -43,8 +43,19 @@
     border-radius: 4px;
     font-size: 1rem;
     cursor: pointer;
+    margin-top: 10px; /*
+  }
+  .login-select {
+    width: 100%; /* Chiều rộng 100% so với form */
+    padding: 10px; /* Thêm khoảng cách bên trong */
+    font-size: 16px; /* Tăng kích thước chữ */
+    border: 1px solid #ccc; /* Đường viền */
+    border-radius: 5px; /* Bo tròn các góc */
+    margin-bottom: 15px; /* Thêm khoảng cách dưới để tách khỏi button */
+    box-sizing: border-box; /* Đảm bảo padding không làm tăng kích thước tổng */
   }
   
+
   .login-button:hover {
     background: #0056b3;
   }
