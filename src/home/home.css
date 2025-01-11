@@ -270,6 +270,12 @@ body {
     border-radius: 5px;
     cursor: pointer;
     border: 2px solid black;
+    font-size: 10px;
+    overflow: hidden; /* Ẩn nội dung tràn */
+    text-overflow: ellipsis; /* Thêm dấu "..." nếu nội dung bị cắt *//* Ngăn chữ xuống dòng */
+    box-sizing: border-box; /* Đảm bảo padding không làm thay đổi kích thước */
+    padding: 0; /* Loại bỏ padding thừa */
+    line-height: normal; /* Đặt chiều cao dòng bình thường */
 }
 
 .seat.char {
